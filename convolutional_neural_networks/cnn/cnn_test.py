@@ -19,7 +19,7 @@ channel = implementations.insecure_channel(host, int(port))
 stub = prediction_service_pb2.beta_create_PredictionService_stub(channel)
 
 # Generate test data
-img = cv2.imread("/Users/*****/Documents/IdeaProjects/TensorFlowTutorials/dataset/9.2694.jpg", 0)
+img = cv2.imread("../dataset/9.2694.jpg", 0)
 rows, cols = img.shape
 imagePixes = rows * cols
 img_arrayy = img.reshape(1, imagePixes)

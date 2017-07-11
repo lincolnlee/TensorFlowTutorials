@@ -33,7 +33,7 @@ FLAGS = None
 
 def main(_):
     # Import data
-    mnist = input_data.read_data_sets('/Users/*****/Documents/tensorflowprojects/dataset', one_hot=True)
+    mnist = input_data.read_data_sets('../dataset', one_hot=True)
 
     # Create the model
     x = tf.placeholder(tf.float32, [None, 784])
@@ -72,7 +72,7 @@ def main(_):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--data_dir', type=str, default='/Users/*****/Documents/tensorflowprojects/dataset',
+    parser.add_argument('--data_dir', type=str, default='../dataset',
                         help='Directory for storing input data')
     FLAGS, unparsed = parser.parse_known_args()
     tf.app.run(main=main, argv=[sys.argv[0]] + unparsed)

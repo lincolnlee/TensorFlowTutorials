@@ -40,7 +40,7 @@ def max_pool_2x2(x):
 
 def main(_):
     # Import data
-    mnist = input_data.read_data_sets('/Users/*****/Documents/IdeaProjects/TensorFlowTutorials/dataset', one_hot=True)
+    mnist = input_data.read_data_sets('../dataset', one_hot=True)
 
     #img = cv2.imread("/Users/*****/Documents/TensorFlowTutorials/dataset/9.2694.jpg")
     #rows, cols = img.shape
@@ -108,7 +108,7 @@ def main(_):
     sess.run(tf.initialize_all_variables())
 
     # 会将已经保存的变量值resotre到变量中。
-    saver.restore(sess, "/Users/*****/Documents/IdeaProjects/TensorFlowTutorials/model/multilayer_convolutional_network")
+    saver.restore(sess, "../model/multilayer_convolutional_network")
 
     # Test trained model
     print("test accuracy %g" % accuracy.eval(feed_dict={
@@ -127,9 +127,9 @@ def main(_):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--data_dir', type=str, default='/Users/*****/Documents/IdeaProjects/TensorFlowTutorials/dataset',
+    parser.add_argument('--data_dir', type=str, default='../dataset',
                         help='Directory for storing input data')
-    parser.add_argument('--work_dir', type=str, default='/Users/*****/Documents/IdeaProjects/TensorFlowTutorials',
+    parser.add_argument('--work_dir', type=str, default='.',
                         help='dir')
     parser.add_argument('--export_version', type=str, default='1',
                         help='model')

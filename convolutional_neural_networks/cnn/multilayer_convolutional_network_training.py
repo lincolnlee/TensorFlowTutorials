@@ -37,7 +37,7 @@ def max_pool_2x2(x):
 
 def main(_):
     # Import data
-    mnist = input_data.read_data_sets('/Users/*****/Documents/tensorflowprojects/dataset', one_hot=True)
+    mnist = input_data.read_data_sets('../dataset', one_hot=True)
 
     # Create the model
     x = tf.placeholder(tf.float32, [None, 784])
@@ -115,12 +115,12 @@ def main(_):
         x: mnist.test.images, y_: mnist.test.labels, keep_prob: 1.0}))
 
     # file_name如果不存在的话，会自动创建
-    saver.save(sess, "/Users/*****/Documents/tensorflowprojects/model/multilayer_convolutional_network")
+    saver.save(sess, "../model/multilayer_convolutional_network")
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--data_dir', type=str, default='/Users/*****/Documents/tensorflowprojects/dataset',
+    parser.add_argument('--data_dir', type=str, default='../dataset',
                         help='Directory for storing input data')
     FLAGS, unparsed = parser.parse_known_args()
     tf.app.run(main=main, argv=[sys.argv[0]] + unparsed)
